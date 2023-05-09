@@ -1,0 +1,76 @@
+<form
+  [formGroup]="formAppointment"
+  class="form-box"
+  cdkDrag
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-item">
+    <input
+      placeholder="Enter the title..."
+      id="title"
+      type="text"
+      name="title"
+      required
+      minlength="2"
+      formControlName="title"
+    />
+    <div
+      *ngIf="formAppointment.get('title')?.errors"
+      class="alert alert-danger"
+    >
+      <small *ngIf="formAppointment.get('title')?.errors?.['required']"
+        >Title is required!</small
+      >
+
+      <small *ngIf="formAppointment.get('title')?.errors?.['minlength']"
+        >Sorry! Short title</small
+      >
+    </div>
+  </div>
+  <div class="form-item">
+    <input
+      placeholder="Enter the description..."
+      id="description"
+      type="text"
+      name="description"
+      required
+      minlength="2"
+      formControlName="description"
+    />
+    <div
+      *ngIf="formAppointment.get('description')?.errors"
+      class="alert alert-danger"
+    >
+      <small *ngIf="formAppointment.get('description')?.errors?.['required']"
+        >Description is required!</small
+      >
+
+      <small *ngIf="formAppointment.get('description')?.errors?.['minlength']"
+        >Sorry! Short description</small
+      >
+    </div>
+  </div>
+  <div class="form-item">
+    <input id="time" type="time" name="time" required formControlName="time" />
+    <div
+      *ngIf="formAppointment.get('time')?.errors"
+      class="alert alert-danger"
+    >
+      <small *ngIf="formAppointment.get('time')?.errors?.['required']"
+        >Time is required!</small
+      >
+    </div>
+  </div>
+  <div class="divButton">
+    <button class="button button__cancel" (click)="closeAppointmant($event)">
+      Cancel
+    </button>
+    <button
+      class="button button__save"
+      type="submit"
+      [disabled]="!formAppointment.valid"
+    >
+      Save
+    </button>
+  </div>
+</form>

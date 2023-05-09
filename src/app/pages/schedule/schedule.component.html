@@ -1,0 +1,34 @@
+<h4>Schedule</h4>
+<form class="form">
+  <div
+    cdkDropList
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+    *ngIf="appointmants.length > 0; else alert"
+  >
+    <div class="example-box" *ngFor="let appointmant of appointmants" cdkDrag>
+      <h4>{{ appointmant.title }}</h4>
+      <div class="boxItens">
+        <mat-icon>alarm</mat-icon>
+        <p>{{ appointmant.time }}</p>
+      </div>
+      <div class="boxItens">
+        <mat-icon>calendar_today</mat-icon>
+        <p>{{ appointmant.date | date : "longDate" }}</p>
+      </div>
+      <div class="boxItens">
+        <mat-icon>list_alt</mat-icon>
+        <p>{{ appointmant.description }}</p>
+      </div>
+      <div class="boxButton">
+        <mat-icon
+          color="warn"
+          class="buttonDelete"
+          (click)="deleteAppointmant(appointmant.id)"
+          >delete</mat-icon
+        >
+      </div>
+    </div>
+  </div>
+  <ng-template #alert>You don't have appointmants</ng-template>
+</form>

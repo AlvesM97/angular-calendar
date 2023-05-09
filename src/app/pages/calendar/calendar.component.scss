@@ -1,0 +1,21 @@
+.form{
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  &__titulo {
+    text-transform: capitalize;
+    color: var(--primary);
+  }
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 21px;
+  color: var(--primary);
+}
+
+.demo-inline-calendar-card {
+  width: 300px;
+  margin: 1em auto 0em auto;
+}

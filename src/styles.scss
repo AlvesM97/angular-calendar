@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #277cc2;
+  --secondary: #ff0000;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.button{
+  background-color: var(--primary);
+  color: white;
+  display: block;
+  flex: 1;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 0.5em;
+  margin: 1em auto 0em auto;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &__cancel{
+    background-color: var(--secondary);
+    max-width: 5em;
+    margin-bottom: 1em;
+  }
+  &__save{
+    background-color: var(--primary);
+    max-width: 5em;
+    margin-bottom: 1em;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled{
+    background-color: rgb(106, 112, 112);
+    cursor: default;
+  }
+}

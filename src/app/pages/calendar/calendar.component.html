@@ -1,0 +1,18 @@
+<h4>Calendar</h4>
+
+<form class="form">
+  <div>
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar [(selected)]="selected"></mat-calendar>
+    </mat-card>
+    <button class="button" (click)="createAppointment()">
+      Create appointment
+    </button>
+  </div>
+</form>
+<app-drop-and-drop
+  *ngIf="open"
+  [selected]="selected"
+  [open]="open"
+  (closeDropAndDrop)="closeDropAndDrop()"
+></app-drop-and-drop>
